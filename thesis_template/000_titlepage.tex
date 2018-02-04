@@ -1,0 +1,181 @@
+\documentclass[a4paper,12pt,oneside]{scrreprt} %scrreprt
+% DIN-A4 Papersize, Typeface size 12pt (default),
+% documentclass is "scrreprt"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}	% for english spelling
+\usepackage[utf8]{inputenc}	% settings for Inputencoding
+\usepackage[T1]{fontenc}	% settings for Fontencoding
+\usepackage{marvosym}		% package for special symbols
+				% (e.g. Euro-Symbol)
+\usepackage{pifont}		% symbols for the \ding{}-command
+
+% load package "geometry" and set up 
+%\usepackage[left=3cm, right=2.5cm, top=2.5cm, bottom=3cm, includeheadfoot]{geometry}
+%\usepackage{geometry}
+%\geometry{inner=2.5cm, outer=5cm}
+%\geometry{includehead, includefoot, top=2.5cm, bottom=2cm}
+
+% package for different typefaces
+\usepackage{mathptmx, charter, courier}
+\usepackage[scaled]{helvet}
+
+% package to set spaces
+\usepackage{setspace}
+\setlength{\parindent}{0em}
+\setlength{\parskip}\medskipamount
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibtexstyle für Literaturangaben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[numbers,sort&compress]{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math-Modus
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathrsfs, amssymb, textcomp}
+\usepackage[intlimits]{empheq}
+
+\usepackage{mathptmx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[svgnames,table,hyperref]{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array}	% needed to use \firsthline und \lasthline in Tables
+\usepackage{booktabs}	% needed to use \toprule, \midrule and \bottomrule
+\usepackage{tabularx}	% special kind of tables, that fits better on the pages
+\usepackage{multirow} 	% combine several rows of a column from a table
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{subfigure}
+
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+
+\graphicspath{{./images/}{./figures}}
+\DeclareGraphicsExtensions{.png,.pdf,.tif,.jpg}
+\usepackage{float}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Captions for Figures and Tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[font={small,sf},	% small fontface and sans serifes
+	    labelfont={bf},	% Labels "Tabelle/Abbildung" boldfaced
+	    margin=1cm,		% 
+	    aboveskip=10pt	% 
+	    ]{caption}		%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rahmen für Texte
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancybox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rahmen für Texte
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[stable]{footmisc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quellcode einbinden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Algorithmen formatieren
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF-Seite einbinden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pdfpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[pdftex,
+	    bookmarks,
+	    raiselinks,
+	    pageanchor,
+	    hyperindex,
+	    colorlinks=true,
+	    linkcolor=black,
+	    urlcolor=black,
+	    menucolor=black,
+	    citecolor=black]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% own environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% start of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{titlepage}
+
+\begin{sffamily}
+\begin{center}
+	
+	\rule{0.7\textwidth}{.4pt}
+
+	\vspace{1cm}
+%====================================================================
+% TUM logo, faculty and TUM Name
+	\includegraphics[width=6cm,angle=0]{TUMLogo_oZ_Outline_schwarz_RGB.png}
+
+	\vspace{0.5cm}
+
+	{\LARGE \textsc{Fakult\"at f\"ur Informatik}}
+
+	\vspace{0.25cm}
+	
+	{\large \textsc{Der Technischen Universit\"at M\"unchen}}
+	
+	\vspace{1.0cm}
+	
+%====================================================================
+% Thesis type
+	{\Large {\textbf{Bachelor's / Master's Thesis in Informatics}}}
+	
+	\vspace{1.0cm}
+	
+%====================================================================
+% title english
+	{\LARGE Title english}
+
+	{\Large Subtitle english}
+
+	\vspace{1cm}
+
+%====================================================================
+% author
+	{\large Author}
+	
+	\vfill
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[scale=1.5]{IN_schwarz_CMYK}
+	\end{figure}
+	
+	\rule{0.7\textwidth}{.4pt}\\\medskip
+	
+\end{center}
+\end{sffamily}
+
+\end{titlepage}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,213 @@
+\documentclass[a4paper, 10pt, bibliography=totoc, twoside, numbers=noenddot]
+{scrbook}
+
+\usepackage[UKenglish,ngerman]{babel}	% for english spelling
+\usepackage[utf8]{inputenc}		% settings for Inputencoding
+\usepackage[T1]{fontenc}		% settings for Fontencoding
+\usepackage{marvosym}			% package for special symbols
+					% (e.g. Euro-Symbol)
+\usepackage{pifont}			% symbols for the \ding{}-command
+
+% package for different typefaces
+\usepackage{mathptmx, charter, courier}
+\usepackage[scaled]{helvet}
+
+% package to set spaces
+\usepackage{setspace}
+\setlength{\parindent}{0em}
+\setlength{\parskip}\medskipamount
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{subfigure}
+
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+
+% paths to look for images
+\graphicspath{{./images/}}
+\DeclareGraphicsExtensions{.png,.pdf,.tif,.jpg}
+\usepackage{float}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF-Seite einbinden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pdfpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Better typography:
+% http://www.khirevich.com/latex/microtype/
+% http://mirror.unl.edu/ctan/macros/latex/contrib/microtype/microtype.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[%
+  activate={true,nocompatibility},
+  final,
+  tracking=true,
+  kerning=true,
+  spacing=true,
+  babel=true,
+]{microtype}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibtexstyle für Literaturangaben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+% http://ctan.mirrorcatalogs.com/macros/latex/exptl/biblatex/doc/biblatex.pdf
+% http://bit.ly/1E2g9Z9
+\usepackage[
+    style=ieee,
+    backend=biber,
+%     alldates=edtf,
+%     seconds=true,
+]{biblatex}
+\addbibresource{literatur.bib}
+
+% Old version
+%\addbibresource{bibliography.bib}
+%\usepackage[numbers,sort&compress]{natbib}
+%\usepackage{url}
+%\usepackage{breakurl}
+%\def\UrlBreaks{\do\/\do-} % allow additional line breaks in URLs at /
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[plainpages=false,
+	    pdfpagelabels,
+	    pdftex,
+	    bookmarks,
+	    raiselinks,
+	    pageanchor,
+	    hyperindex,
+	    breaklinks=true,
+	    colorlinks=true,
+	    linkcolor=black,
+	    urlcolor=black,
+	    menucolor=black,
+	    citecolor=black]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	    
+% Create glossaries -- must be AFTER Hyperlinks!
+% http://bit.ly/1AN85XM
+% http://tex.stackexchange.com/a/65712
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[acronym,shortcuts]{glossaries}
+\input{acronyms}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix package: Appendix A: Title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[titletoc]{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% start of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\selectlanguage{UKenglish}
+\pagenumbering{roman}
+
+%====================================================================
+% Titlepage & Page 1
+\includepdf[pages=-]{000_titlepage} % include as PDF to get it centered
+\cleardoubleoddpage
+
+\include{100_page1}
+\cleardoubleoddpage
+
+%====================================================================
+% Assertion
+\include{110_erklaerung}
+\cleardoubleoddpage
+
+%====================================================================
+% Abstract
+\include{120_abstract}
+\cleardoubleoddpage
+
+%====================================================================
+% Zusammenfassung
+\selectlanguage{ngerman}
+
+\include{130_zusammenfassung}
+\cleardoubleoddpage
+
+\selectlanguage{UKenglish}
+%====================================================================
+% TOC
+\tableofcontents
+\cleardoubleoddpage
+
+\listoffigures
+\cleardoubleoddpage
+
+\listoftables
+\cleardoubleoddpage
+%====================================================================
+% 
+\pagenumbering{arabic}
+
+\include{200_introduction}
+\cleardoubleoddpage
+
+\include{210_background}
+\cleardoubleoddpage
+
+\include{220_related_work}
+\cleardoubleoddpage
+
+\include{230_concept}
+\cleardoubleoddpage
+
+\include{240_design}
+\cleardoubleoddpage
+
+\include{250_implementation}
+\cleardoubleoddpage
+
+\include{260_analysis_evaluation}
+\cleardoubleoddpage
+
+\include{270_conclusion}
+\cleardoubleoddpage
+
+%====================================================================
+
+% Acronyms and Glossary
+
+
+%====================================================================
+
+\printbibliography
+
+% old version
+%\nocite{*}
+
+%\bibliographystyle{plainnat}
+%\bibliography{literatur}
+
+%====================================================================
+% Appendix
+\begin{appendices}
+  % redef chapter heading:
+  % from	A BlaBla
+  % to	Appendix A BlaBla
+  \renewcommand*{\chapterformat}{%
+	  \chapapp~\thechapter\autodot\enskip
+  }
+
+  \cleardoubleoddpage
+  
+  \include{900_Appendix_stuff}
+\end{appendices}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of the document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
