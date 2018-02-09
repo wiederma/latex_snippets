@@ -1,13 +1,13 @@
-title  := 000_titlepage
-source := thesis_skeleton
+title  := 000_titlepage.tex
+source := thesis_skeleton.tex
 
 build:
-	latexmk -pdf -bibtex -bibtex $(title).tex
-	latexmk -pdf -bibtex -bibtex $(source).tex
+	latexmk -pdf -bibtex -bibtex $(title)
+	latexmk -pdf -bibtex -bibtex $(source)
 
 watch:
-	latexmk -pdf -bibtex -bibtex $(title).tex
-	latexmk -pvc -pdf -bibtex -interaction=nonstopmode -bibtex $(source).tex
+	latexmk -pdf -bibtex -bibtex $(title)
+	latexmk -pvc -pdf -bibtex -interaction=nonstopmode -bibtex $(source)
 
 # remove all temp files
 clean:
