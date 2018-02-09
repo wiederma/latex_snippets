@@ -1,0 +1,146 @@
+\documentclass[
+  a4paper,
+  %%twoside,
+  conference,
+]{IEEEtran}
+
+% display biographies
+% \IEEEoverridecommandlockouts
+
+%%% IDAACS for conference information added on top (hackish - would be nice to have that better)
+%%% IEEEtran Standard template for IEEE submissions 
+
+% Font encoding and and input encoding.
+% Nothing special here but mandatory…
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Set language; main language has to be at last!
+% http://bit.ly/1wdPhoT
+\usepackage[english]{babel}
+
+% Math breaks without this one...
+% Font Settings: rev. Times, rev. Helvetica and DejaVuSansMono
+\usepackage{stix}
+\usepackage{tgtermes}
+\usepackage[scale=0.92]{tgheros}
+\usepackage[scaled=0.80]{DejaVuSansMono}
+
+% Geometry Settings - currently for US letter conference 
+\usepackage[%
+  top=1.9cm,
+  bottom=2.54cm,
+  left=1.57cm,
+  right=1.57cm,
+  %%twoside=true
+  twoside=false
+]{geometry}
+
+\usepackage{color}
+
+% Better typography:
+% http://www.khirevich.com/latex/microtype/
+% http://mirror.unl.edu/ctan/macros/latex/contrib/microtype/microtype.pdf
+\usepackage[%
+  activate={true,nocompatibility},
+  final,
+  tracking=true,
+  kerning=true,
+  spacing=true,
+  babel=true,
+]{microtype}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations,decorations.pathreplacing,shapes,positioning}
+
+
+% Fix "Schusterjungen" and Hurenkinder"
+\clubpenalty = 10000
+\widowpenalty = 10000
+
+% Include images:
+% http://ctan.sciserv.eu/macros/latex/required/graphics/grfguide.pdf
+\usepackage{graphicx}
+\graphicspath{{img/}{figures/}}
+
+% Fix warning: Loading 'csquotes' recommended.
+\usepackage{csquotes}
+
+% Bibliography
+% http://ctan.mirrorcatalogs.com/macros/latex/exptl/biblatex/doc/biblatex.pdf
+% http://bit.ly/1E2g9Z9
+\usepackage[
+    style=ieee,
+    backend=biber,
+%     alldates=edtf,
+%     seconds=true,
+]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Create glossaries -- must be AFTER Hyperlinks!
+% http://bit.ly/1AN85XM
+% http://tex.stackexchange.com/a/65712
+\usepackage[acronym,shortcuts]{glossaries}
+\input{acronyms}
+
+%% sonderzeichen und kreise
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% kreismakro
+\newcommand{\kreis}[1]{\kern0.2em\unitlength1ex\begin{picture}(2.5,2.5)%
+\put(0.75,0.75){\circle{2.5}}\put(0.75,0.75){\makebox(0,0){#1}}%
+\end{picture}}
+%%% für dieses paper die bessere option - \kreis ist zu gross und ezeugt unterschiedliche zeilenbreiten
+\usepackage{pifont}
+%% kreise mit:
+% schwarz: \ding{182}\ding{183}   weiss: \ding{192}\ding{193}   bzw:
+%\Huge\ding{182}\ding{183}\ding{192}\ding{193}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+
+%% for the no. symbol
+\usepackage{textcomp}
+
+\begin{document}
+
+\title{THIS IS A PAPER TITLE}
+
+\author{
+    \IEEEauthorblockN{
+    VORNAME NACHNAME\IEEEauthorrefmark{1},
+    VORNAME NACHNAME\IEEEauthorrefmark{1}
+    }
+    \IEEEauthorblockA{
+    \IEEEauthorrefmark{1}INSTITUTE, ADDRESS, Germany
+    \\\{VORNAME.NACHNAME\}@DOMAIN.DE}
+
+}
+
+
+\maketitle
+
+\input{100_abstract}
+\input{110_introduction}
+\input{120_background}
+\input{130_relatedWork}
+\input{140_concept}
+\input{150_design}
+\input{160_implementation}
+\input{170_evaluation}
+\input{180_conclusions}
+\input{190_futureWork}
+
+
+\printbibliography
+
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{.jpg}}]{VORNAME NACHNAME}
+% 
+% \end{IEEEbiography} 
+% 
+% \vskip 0pt plus -1fil
+% 
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{.jpg}}]{VORNAME NACHNAME}
+% 
+% \end{IEEEbiography} 
+
+\end{document}
